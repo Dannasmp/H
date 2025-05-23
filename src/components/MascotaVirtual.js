@@ -65,8 +65,9 @@ const MascotaVirtual = ({ userData, setCurrentPage }) => {
 export default MascotaVirtual;
 
 
-Los cambios principales incluyen;
+// Los cambios principales incluyen:
 
+/*
 1. Juego de Clasificación Rápida:
    - Interfaz intuitiva con materiales reales (plástico, vidrio, metal, etc.)
    - Sistema de puntos inmediato al clasificar correctamente
@@ -96,3 +97,5 @@ Los usuarios ahora pueden:
 - Jugar dos juegos completos con mecánicas diferentes
 - Seguir su progreso fácilmente
 - Ganar puntos de manera divertida mientras aprenden sobre reciclaje
+
+*/
