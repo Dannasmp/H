@@ -65,7 +65,7 @@ const MascotaVirtual = ({ userData, setCurrentPage }) => {
 export default MascotaVirtual;
 
 
-Los cambios principales incluyen:
+Los cambios principales incluyen;
 
 1. Juego de Clasificación Rápida:
    - Interfaz intuitiva con materiales reales (plástico, vidrio, metal, etc.)
