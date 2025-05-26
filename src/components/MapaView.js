@@ -1,4 +1,15 @@
 import React, { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+
+// Asegúrate de que los íconos de los marcadores se muestren correctamente
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+});
 
 const MapaView = () => {
   const [currentLocation, setCurrentLocation] = useState({
@@ -20,47 +31,26 @@ const MapaView = () => {
     <div className="container mx-auto px-4 py-8 mt-16">
       <div className="bg-white p-6 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Mapa de Recolectores - Madrid, Cundinamarca</h2>
-        <div className="relative h-96 bg-gray-200 rounded-lg overflow-hidden">
-          {/* Mapa estático de Madrid, Cundinamarca */}
-          <div className="absolute inset-0 bg-green-100 flex items-center justify-center">
-            <div className="relative w-full h-full">
-              {/* Punto central de Madrid */}
-              <div 
-                className="absolute bg-red-600 w-4 h-4 rounded-full"
-                style={{
-                  top: '50%',
-                  left: '50%',
-                  transform: 'translate(-50%, -50%)'
-                }}
-              ></div>
-              
-              {/* Recolectores */}
-              {collectors.map(collector => (
-                <div
-                  key={collector.id}
-                  className="absolute bg-blue-600 w-3 h-3 rounded-full"
-                  style={{
-                    top: `${50 + (collector.lat - currentLocation.lat) * 10000}%`,
-                    left: `${50 + (collector.lng - currentLocation.lng) * 10000}%`,
-                    transform: 'translate(-50%, -50%)'
-                  }}
-                  title={`${collector.nombre} (${collector.status})`}
-                ></div>
-              ))}
-              
-              {/* Leyenda */}
-              <div className="absolute bottom-4 left-4 bg-white p-2 rounded-lg shadow-md text-sm">
-                <div className="flex items-center mb-1">
-                  <div className="bg-red-600 w-3 h-3 rounded-full mr-2"></div>
-                  <span>Tu ubicación (Madrid)</span>
-                </div>
-                <div className="flex items-center">
-                  <div className="bg-blue-600 w-3 h-3 rounded-full mr-2"></div>
-                  <span>Recolectores</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="relative h-96">
+          {/* Mapa de Madrid, Cundinamarca */}
+          <MapContainer center={currentLocation} zoom={14} className="h-full">
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+            {/* Punto central de Madrid */}
+            <Marker position={currentLocation}>
+              <Popup>Tu ubicación (Madrid)</Popup>
+            </Marker>
+            {/* Recolectores */}
+            {collectors.map(collector => (
+              <Marker key={collector.id} position={{ lat: collector.lat, lng: collector.lng }}>
+                <Popup>
+                  {collector.nombre} ({collector.status})
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
         </div>
         <div className="mt-6">
           <h3 className="text-xl font-semibold text-gray-800 mb-4">Recolectores Disponibles</h3>
