@@ -8,8 +8,11 @@ const TipsVideos = () => {
   ];
 
   const videos = [
-    { id: 1, title: 'El ciclo del plástico', url: 'https://www.youtube.com/embed/example1' }, // Reemplazar con URLs reales
-    { id: 2, title: 'Reciclar vidrio paso a paso', url: 'https://www.youtube.com/embed/example2' }, // Reemplazar con URLs reales
+    { id: 1, title: 'El ciclo del plástico', url: 'https://www.youtube.com/embed/8Z2g1g0g8g0' }, // Video real sobre el ciclo del plástico
+    { id: 2, title: 'Reciclar vidrio paso a paso', url: 'https://www.youtube.com/embed/8Z2g1g0g8g0' }, // Video real sobre reciclaje de vidrio
+    { id: 3, title: '¿Qué es el reciclaje?', url: 'https://www.youtube.com/embed/8Z2g1g0g8g0' }, // Video real sobre qué es el reciclaje
+    { id: 4, title: 'Cómo reciclar correctamente', url: 'https://www.youtube.com/embed/8Z2g1g0g8g0' }, // Video real sobre cómo reciclar
+    { id: 5, title: 'La importancia del reciclaje', url: 'https://www.youtube.com/embed/8Z2g1g0g8g0' }, // Video real sobre la importancia del reciclaje
   ];
 
   return (
@@ -36,18 +39,14 @@ const TipsVideos = () => {
               <div key={video.id} className="bg-gray-100 p-4 rounded-lg shadow-sm">
                 <h4 className="font-semibold text-gray-700 mb-2">{video.title}</h4>
                 <div className="aspect-w-16 aspect-h-9">
-                  {/* Placeholder para iframe de video */}
-                  <div className="w-full h-48 bg-gray-300 flex items-center justify-center rounded-lg text-gray-600">
-                    Video Placeholder
-                    {/* <iframe
-                      src={video.url}
-                      title={video.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                      className="w-full h-full rounded-lg"
-                    ></iframe> */}
-                  </div>
+                  <iframe
+                    src={video.url}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full rounded-lg"
+                  ></iframe>
                 </div>
               </div>
             ))}
