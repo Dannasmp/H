@@ -5,12 +5,13 @@ const TipsVideos = () => {
     { id: 1, title: 'Cómo separar tus residuos', content: 'Aprende a clasificar correctamente papel, plástico, vidrio y metal.' },
     { id: 2, title: 'Reciclaje de electrónicos', content: 'Descubre dónde y cómo desechar tus aparatos electrónicos viejos de forma segura.' },
     { id: 3, title: 'Composta casera', content: 'Convierte tus residuos orgánicos en abono para tus plantas.' },
+    { id: 3, title: 'Reutiliza', content: 'Puedes crear con tu reciclaje.' },
   ];
 
   const videos = [
-    { id: 1, title: 'El ciclo del plástico', url: 'https://www.youtube.com/embed/8Z2g1g0g8g0' }, // Video real sobre el ciclo del plástico
-    { id: 2, title: 'Reciclar vidrio paso a paso', url: 'https://www.youtube.com/embed/8Z2g1g0g8g0' }, // Video real sobre reciclaje de vidrio
-    { id: 3, title: '¿Qué es el reciclaje?', url: 'https://www.youtube.com/embed/8Z2g1g0g8g0' }, // Video real sobre qué es el reciclaje
+    { id: 1, title: 'El ciclo del plástico', url: 'https://youtu.be/uaI3PLmAJyM?feature=shared' }, // Video real sobre el ciclo del plástico
+    { id: 2, title: 'Reciclar vidrio paso a paso', url: 'https://youtu.be/YgES1DyjeGs?feature=shared' }, // Video real sobre reciclaje de vidrio
+    { id: 3, title: '¿Qué es el reciclaje?', url: 'https://youtu.be/nvUqnpicSd0?feature=shared' }, // Video real sobre qué es el reciclaje
     { id: 4, title: 'Cómo reciclar correctamente', url: 'https://www.youtube.com/embed/8Z2g1g0g8g0' }, // Video real sobre cómo reciclar
     { id: 5, title: 'La importancia del reciclaje', url: 'https://www.youtube.com/embed/8Z2g1g0g8g0' }, // Video real sobre la importancia del reciclaje
   ];
